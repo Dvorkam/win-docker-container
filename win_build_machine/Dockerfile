@@ -37,13 +37,9 @@ RUN powershell -Command \
 		
 # Install Visual Studio Build Tools 2022 with the C++ build tools
 # https://learn.microsoft.com/en-us/visualstudio/install/workload-component-id-vs-build-tools?view=vs-2022
-RUN powershell -Command \
-        choco install visualstudio2022buildtools -y --package-parameters \
-		" \
-		--add Microsoft.VisualStudio.Component.VC.Tools.x86.x64 \
-		--add Microsoft.VisualStudio.Component.Windows11SDK.22000 \
-		--add Microsoft.VisualStudio.Component.Windows10SDK.19041 \
-		--includeRecommended \
+RUN powershell -Command choco install visualstudio2022buildtools -y;
+
+RUN powershell -Command choco install visualstudio2022-workload-vctools -y;
 
 
 # Note: Adjust the Dockerfile according to your specific needs. The PATH might need specific adjustments.
